@@ -77,7 +77,7 @@
         <to uri="direct:evaluate-detection"/>
         <to uri="direct:price"/>
         <wireTap uri="direct:mqtt-publish"/>
-        <to uri="direct:store-image"/>
+        <!-- <to uri="direct:store-image"/> -->
     </route>
 
     <!-- TEST HTTP RESPONSE -->
@@ -126,12 +126,22 @@
     <route id="evaluate-detection">
         <from uri="direct:evaluate-detection"/>
 
+
+        <setProperty name="possible-detections">
+             <jsonpath resultType="java.util.ArrayList">$.detections[*]['label','score']</jsonpath>
+        </setProperty>
+        <log message="possible detections: ${exchangeProperty.possible-detections}"/>
+        
+        <to uri="kafka:{{kafka.topic.name}}?brokers={{camel.component.kafka.brokers}}"/>
+
         <setBody>
             <jsonpath resultType="java.util.ArrayList">$.detections[?(@.score>{{score.accuracy}})].label</jsonpath>
         </setBody>
 
         <log message="accuracy: {{score.accuracy}}"/>
         <log message="result detection: ${body}"/>
+
+
 
         <choice>
             <when>

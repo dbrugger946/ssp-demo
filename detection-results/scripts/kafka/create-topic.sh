@@ -1,0 +1,1 @@
+kafka-topics.sh --create --topic detection-results --bootstrap-server localhost:9092

@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camel-price
+  labels:
+    app: price-engine
+    app.kubernetes.io/part-of: price-engine
+    app.openshift.io/runtime: camel  
+spec:
+  selector:
+    matchLabels:
+      app: camel-price
+  template:
+    metadata:
+      labels:
+        app: camel-price
+    spec:
+      containers:
+      - name: camel-price
+        image: quay.io/redhatintegration/camel-price:1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 18090
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: camel-price-svc
+spec:
+  selector:
+    app: camel-price
+  ports:
+  - port: 8080
+    targetPort: 18090
+...

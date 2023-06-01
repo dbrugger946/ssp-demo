@@ -1,0 +1,253 @@
+/home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible
+[chaika@ ansible]$ansible-playbook  -e="ocp_username=${OCP_USERNAME}" -e="openshift_version=4.12"    ./install.yaml -i inventory/openshift-2.yaml 
+
+PLAY [Install Edge-to-Core Solution Pattern Demo] **************************************************************************************
+
+TASK [Install] *************************************************************************************************************************
+
+TASK [install : Get OpenShift Apps Domain] *********************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : Get OpenShift Domain] **************************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : Get OpenShift Console] *************************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : Get OpenShift API] *****************************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : debug] *****************************************************************************************************************
+ok: [localhost] => {
+    "msg": [
+        "Console URL: https://console-openshift-console.apps.cluster-kc8rt.sandbox2795.opentlc.com",
+        "API URL: https://api.cluster-kc8rt.sandbox2795.opentlc.com:6443",
+        "Route Subdomain: apps.cluster-kc8rt.sandbox2795.opentlc.com",
+        "Admin username: admin"
+    ]
+}
+
+TASK [install : Fetch OpenShift cluster version] ***************************************************************************************
+skipping: [localhost]
+
+TASK [install : debug] *****************************************************************************************************************
+ok: [localhost] => {
+    "msg": "Setting up for OpenShift version: 4.12"
+}
+
+TASK [install : Provision AMQ Streams] *************************************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_streams.yaml for localhost
+
+TASK [install : Evaluate openshift-operators namespace if not exists] ******************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate Operator Group] ***********************************************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate Streams Subscription] *****************************************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "module_stderr": "/bin/sh: line 1: /usr/bin/python3.10.11: No such file or directory\n", "module_stdout": "", "msg": "The module failed to execute correctly, you probably need to set the interpreter.\nSee stdout/stderr for the exact error", "rc": 127}
+
+NO MORE HOSTS LEFT *********************************************************************************************************************
+
+PLAY RECAP *****************************************************************************************************************************
+localhost                  : ok=7    changed=0    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
+
+[chaika@ ansible]$ansible-playbook  -e="ocp_username=${OCP_USERNAME}" -e="openshift_version=4.12"    ./install.yaml -i inventory/openshift-2.yaml 
+
+PLAY [Install Edge-to-Core Solution Pattern Demo] **************************************************************************************
+
+TASK [Install] *************************************************************************************************************************
+
+TASK [install : Get OpenShift Apps Domain] *********************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : Get OpenShift Domain] **************************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : Get OpenShift Console] *************************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : Get OpenShift API] *****************************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : debug] *****************************************************************************************************************
+ok: [localhost] => {
+    "msg": [
+        "Console URL: https://console-openshift-console.apps.cluster-kc8rt.sandbox2795.opentlc.com",
+        "API URL: https://api.cluster-kc8rt.sandbox2795.opentlc.com:6443",
+        "Route Subdomain: apps.cluster-kc8rt.sandbox2795.opentlc.com",
+        "Admin username: admin"
+    ]
+}
+
+TASK [install : Fetch OpenShift cluster version] ***************************************************************************************
+skipping: [localhost]
+
+TASK [install : debug] *****************************************************************************************************************
+ok: [localhost] => {
+    "msg": "Setting up for OpenShift version: 4.12"
+}
+
+TASK [install : Provision AMQ Streams] *************************************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_streams.yaml for localhost
+
+TASK [install : Evaluate openshift-operators namespace if not exists] ******************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate Operator Group] ***********************************************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate Streams Subscription] *****************************************************************************************
+changed: [localhost]
+
+TASK [install : Wait for Streams operator to install] **********************************************************************************
+ok: [localhost]
+
+TASK [install : Provision Camel K] *****************************************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_camelk.yaml for localhost
+
+TASK [install : Evaluate openshift-operators namespace if not exists] ******************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate Operator Group] ***********************************************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate Camel K Subscription] *****************************************************************************************
+changed: [localhost]
+
+TASK [install : Wait for Camel K operator to be ready] *********************************************************************************
+FAILED - RETRYING: [localhost]: Wait for Camel K operator to be ready (20 retries left).
+FAILED - RETRYING: [localhost]: Wait for Camel K operator to be ready (19 retries left).
+FAILED - RETRYING: [localhost]: Wait for Camel K operator to be ready (18 retries left).
+FAILED - RETRYING: [localhost]: Wait for Camel K operator to be ready (17 retries left).
+ok: [localhost]
+
+TASK [install : Provision AMQ Broker] **************************************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_broker.yaml for localhost
+
+TASK [install : Evaluate openshift-operators namespace if not exists] ******************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate Operator Group] ***********************************************************************************************
+skipping: [localhost]
+
+TASK [install : Evaluate AMQ Broker Subscription] **************************************************************************************
+changed: [localhost]
+
+TASK [install : Wait for AMQ Broker operator to install] *******************************************************************************
+FAILED - RETRYING: [localhost]: Wait for AMQ Broker operator to install (10 retries left).
+ok: [localhost]
+
+TASK [install : Provision OpenShift Data Foundation] ***********************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_odf.yaml for localhost
+
+TASK [install : Evaluate openshift-storage namespace if not exists] ********************************************************************
+changed: [localhost]
+
+TASK [install : Evaluate ODF OperatorGroup] ********************************************************************************************
+changed: [localhost]
+
+TASK [install : Evaluate ODF Subscription] *********************************************************************************************
+changed: [localhost]
+
+TASK [install : Wait for NooBaa operator to be ready] **********************************************************************************
+FAILED - RETRYING: [localhost]: Wait for NooBaa operator to be ready (100 retries left).
+FAILED - RETRYING: [localhost]: Wait for NooBaa operator to be ready (99 retries left).
+ok: [localhost]
+
+TASK [install : Create NooBaa custom resource] *****************************************************************************************
+changed: [localhost]
+
+TASK [install : Wait until NooBaa is active] *******************************************************************************************
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (100 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (99 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (98 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (97 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (96 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (95 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (94 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (93 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (92 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (91 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (90 retries left).
+FAILED - RETRYING: [localhost]: Wait until NooBaa is active (89 retries left).
+ok: [localhost]
+
+TASK [install : Create s3 storage account] *********************************************************************************************
+changed: [localhost]
+
+TASK [install : Wait until Account is active] ******************************************************************************************
+ok: [localhost]
+
+TASK [install : Retrieve AWS S3 credentials] *******************************************************************************************
+/usr/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.cluster-kc8rt.sandbox2795.opentlc.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+ok: [localhost]
+
+TASK [install : debug] *****************************************************************************************************************
+ok: [localhost] => {
+    "msg": "AWS S3 Credentials: AWS_ACCESS_KEY_ID = [ZKU09vaaeQaxLQh06Iwt] AWS_SECRET_ACCESS_KEY = [GDv7AsBFDJaHxniePdBVJcbSnuiMgrgbFXJwO3WM]"
+}
+
+TASK [install : Create cluster-admins OpenShift group] *********************************************************************************
+changed: [localhost]
+
+TASK [install : Provision Edge infra] **************************************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_edge.yaml for localhost
+
+TASK [install : Evaluate edge namespace if not exists] *********************************************************************************
+changed: [localhost]
+
+TASK [install : Evaluate AMQ Broker instance] ******************************************************************************************
+changed: [localhost]
+
+TASK [install : Evaluate AMQ Streams instance] *****************************************************************************************
+changed: [localhost]
+
+TASK [install : Evaluate AMQ Broker MQTT route] ****************************************************************************************
+changed: [localhost]
+
+TASK [install : Provision Object Detection] ********************************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_inference.yaml for localhost
+
+TASK [install : Evaluate edge namespace if not exists] *********************************************************************************
+ok: [localhost]
+
+TASK [install : Evaluate Inference model deployment] ***********************************************************************************
+changed: [localhost]
+
+TASK [install : Provision Camel Routes] ************************************************************************************************
+included: /home/chaika/git-prjs/edge-image-demo-pricing/edge-to-cloud-data-pipelines-demo/ansible/roles/install/tasks/provision_routes.yaml for localhost
+
+TASK [install : Evaluate edge namespace if not exists] *********************************************************************************
+ok: [localhost]
+
+TASK [install : Evaluate Camel Price deployment] ***************************************************************************************
+changed: [localhost]
+
+TASK [install : Evaluate Camel Edge deployment] ****************************************************************************************
+changed: [localhost]
+
+TASK [Uninstall] ***********************************************************************************************************************
+skipping: [localhost]
+
+PLAY RECAP *****************************************************************************************************************************
+localhost                  : ok=39   changed=16   unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
+
+

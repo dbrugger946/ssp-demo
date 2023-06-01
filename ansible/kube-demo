@@ -1,0 +1,396 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-89dmx.89dmx.sandbox2714.opentlc.com:6443
+  name: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-b9hbt.b9hbt.sandbox2460.opentlc.com:6443
+  name: api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-cj2wj.cj2wj.sandbox317.opentlc.com:6443
+  name: api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-dz7b6.dz7b6.sandbox1105.opentlc.com:6443
+  name: api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-hmcg9.sandbox2848.opentlc.com:6443
+  name: api-cluster-hmcg9-sandbox2848-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-kc8rt.sandbox2795.opentlc.com:6443
+  name: api-cluster-kc8rt-sandbox2795-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-lgqrs.sandbox2810.opentlc.com:6443
+  name: api-cluster-lgqrs-sandbox2810-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-rg9r4.rg9r4.sandbox2724.opentlc.com:6443
+  name: api-cluster-rg9r4-rg9r4-sandbox2724-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-stczx.stczx.sandbox971.opentlc.com:6443
+  name: api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.cluster-vhk7c.vhk7c.sandbox2115.opentlc.com:6443
+  name: api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443
+- cluster:
+    server: https://api.crest.optimalpath.xyz:6443
+  name: api-crest-optimalpath-xyz:6443
+- cluster:
+    server: https://api.eu46a.prod.ole.redhat.com:6443
+  name: api-eu46a-prod-ole-redhat-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.hemlock.optimalpath.xyz:6443
+  name: api-hemlock-optimalpath-xyz:6443
+- cluster:
+    server: https://api.na46a.prod.ole.redhat.com:6443
+  name: api-na46a-prod-ole-redhat-com:6443
+contexts:
+- context:
+    cluster: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+    user: user1/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  name: /api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443/user1
+- context:
+    cluster: api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+    user: user1/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+  name: /api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443/user1
+- context:
+    cluster: api-eu46a-prod-ole-redhat-com:6443
+    user: shozjg/api-eu46a-prod-ole-redhat-com:6443
+  name: /api-eu46a-prod-ole-redhat-com:6443/shozjg
+- context:
+    cluster: api-na46a-prod-ole-redhat-com:6443
+    user: ayeech/api-na46a-prod-ole-redhat-com:6443
+  name: /api-na46a-prod-ole-redhat-com:6443/ayeech
+- context:
+    cluster: api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+    namespace: 101-workshop
+    user: opentlc-mgr/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+  name: 101-workshop/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443/opentlc-mgr
+- context:
+    cluster: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+    namespace: app-config
+    user: user1/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  name: app-config/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443/user1
+- context:
+    cluster: api-na46a-prod-ole-redhat-com:6443
+    namespace: ayeech-kafka-cluster
+    user: ayeech/api-na46a-prod-ole-redhat-com:6443
+  name: ayeech-kafka-cluster/api-na46a-prod-ole-redhat-com:6443/ayeech
+- context:
+    cluster: api-na46a-prod-ole-redhat-com:6443
+    namespace: ayeech-kafka-schemas
+    user: ayeech/api-na46a-prod-ole-redhat-com:6443
+  name: ayeech-kafka-schemas/api-na46a-prod-ole-redhat-com:6443/ayeech
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: camel-basic
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: camel-basic/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+    namespace: cameldemo
+    user: admin/api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+  name: cameldemo/api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443/admin
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: cameldemo
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: cameldemo/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  name: default/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+    namespace: default
+    user: opentlc-mgr/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+  name: default/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443/opentlc-mgr
+- context:
+    cluster: api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+  name: default/api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-hmcg9-sandbox2848-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-hmcg9-sandbox2848-opentlc-com:6443
+  name: default/api-cluster-hmcg9-sandbox2848-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-kc8rt-sandbox2795-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-kc8rt-sandbox2795-opentlc-com:6443
+  name: default/api-cluster-kc8rt-sandbox2795-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-lgqrs-sandbox2810-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-lgqrs-sandbox2810-opentlc-com:6443
+  name: default/api-cluster-lgqrs-sandbox2810-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-rg9r4-rg9r4-sandbox2724-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-rg9r4-rg9r4-sandbox2724-opentlc-com:6443
+  name: default/api-cluster-rg9r4-rg9r4-sandbox2724-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443
+  name: default/api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443/admin
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: default
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: default/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: default
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: default/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-lgqrs-sandbox2810-opentlc-com:6443
+    namespace: dev-guides
+    user: admin/api-cluster-lgqrs-sandbox2810-opentlc-com:6443
+  name: dev-guides/api-cluster-lgqrs-sandbox2810-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443
+    namespace: edge
+    user: admin/api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443
+  name: edge/api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443/admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: example1
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: example1/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: example2
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: example2/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: example3
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: example3/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: func1
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: func1/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+    namespace: getting-started
+    user: opentlc-mgr/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+  name: getting-started/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443/opentlc-mgr
+- context:
+    cluster: api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+    namespace: getting-started2
+    user: opentlc-mgr/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+  name: getting-started2/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443/opentlc-mgr
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: globex-dev
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: globex-dev/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: globex
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: globex/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+    namespace: hello1
+    user: admin/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  name: hello1/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443/admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: kafka-central
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: kafka-central/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: kafka-service
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: kafka-service/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: kafka-service
+    user: user1/api-hemlock-optimalpath-xyz:6443
+  name: kafka-service/api-hemlock-optimalpath-xyz:6443/user1
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: kubeadmin-kafka-cluster
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: kubeadmin-kafka-cluster/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+    namespace: mad-dev-guides
+    user: admin/api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+  name: mad-dev-guides/api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443/admin
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: openshift-authentication
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: openshift-authentication/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: openshift-authentication
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: openshift-authentication/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: openshift-image-registry
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: openshift-image-registry/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: openshift-image-registry
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: openshift-image-registry/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+    namespace: openshift
+    user: opentlc-mgr/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+  name: openshift/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443/opentlc-mgr
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: prj-update
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: prj-update/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: prj-user1
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: prj-user1/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+    namespace: probes
+    user: user1/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  name: probes/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443/user1
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: quark1
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: quark1/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-crest-optimalpath-xyz:6443
+    namespace: rh-quarkus
+    user: kube:admin/api-crest-optimalpath-xyz:6443
+  name: rh-quarkus/api-crest-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-eu46a-prod-ole-redhat-com:6443
+    namespace: shozjg-kafka-cluster
+    user: shozjg/api-eu46a-prod-ole-redhat-com:6443
+  name: shozjg-kafka-cluster/api-eu46a-prod-ole-redhat-com:6443/shozjg
+- context:
+    cluster: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+    namespace: source-build
+    user: user1/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  name: source-build/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443/user1
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: streams-grafana
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: streams-grafana/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+    namespace: test-user1
+    user: user1/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+  name: test-user1/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443/user1
+- context:
+    cluster: api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+    namespace: test1
+    user: opentlc-mgr/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+  name: test1/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443/opentlc-mgr
+- context:
+    cluster: api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+    namespace: test1
+    user: user1/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+  name: test1/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443/user1
+- context:
+    cluster: api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+    namespace: test2
+    user: user1/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+  name: test2/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443/user1
+- context:
+    cluster: api-hemlock-optimalpath-xyz:6443
+    namespace: toast
+    user: kube:admin/api-hemlock-optimalpath-xyz:6443
+  name: toast/api-hemlock-optimalpath-xyz:6443/kube:admin
+- context:
+    cluster: api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+    namespace: user2
+    user: opentlc-mgr/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+  name: user2/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443/opentlc-mgr
+- context:
+    cluster: api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+    namespace: user2
+    user: user2/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+  name: user2/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443/user2
+current-context: default/api-cluster-rg9r4-rg9r4-sandbox2724-opentlc-com:6443/admin
+kind: Config
+preferences: {}
+users:
+- name: admin/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  user:
+    token: sha256~sqEiOCAh9J0MPJYM2sROjiHXXw1wlQhVjjK2iptQPcc
+- name: admin/api-cluster-dz7b6-dz7b6-sandbox1105-opentlc-com:6443
+  user:
+    token: sha256~apRcnG9y-R1i4lCDpCi24Qmb4W-pL-7-_WcLDKI5W5w
+- name: admin/api-cluster-hmcg9-sandbox2848-opentlc-com:6443
+  user:
+    token: sha256~cdmysJo7YofcxFu6wlpTMVyrv4n7i9uhZ0OTRoEsN50
+- name: admin/api-cluster-kc8rt-sandbox2795-opentlc-com:6443
+  user:
+    token: sha256~5u0JsTnlljS3joBcBiOk9xXW8DKWzepVY2-VY_V9FNw
+- name: admin/api-cluster-lgqrs-sandbox2810-opentlc-com:6443
+  user:
+    token: sha256~ZNkp_TNyrdMjFCDTLU1q6lyl8RdorbV_EOrvdQeTOcM
+- name: admin/api-cluster-rg9r4-rg9r4-sandbox2724-opentlc-com:6443
+  user:
+    token: sha256~zWUx8WBg6Xcgmj2794ozuK4EHBWMBK6_VO_qQuRxBNo
+- name: admin/api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443
+  user:
+    token: sha256~zGxQtnEIfY46GyZlaY_vFvbU6An03wsheSxINzksXvU
+- name: ayeech/api-na46a-prod-ole-redhat-com:6443
+  user:
+    token: sha256~YxBZ2Y6TnEUGEtpxF9Opd3jqSQjzNT_aiGRbjXOV4nQ
+- name: kube:admin/api-crest-optimalpath-xyz:6443
+  user:
+    token: sha256~zy9VX-QM8L6x4xHae53KIt6BICfQJhULmcdwUzu1PWQ
+- name: kube:admin/api-hemlock-optimalpath-xyz:6443
+  user:
+    token: sha256~6B3Z13lgU19HQtxzUFWIsAmQYD1MHO6GjGWO-MBnLy4
+- name: opentlc-mgr/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+  user: {}
+- name: opentlc-mgr/api-cluster-cj2wj-cj2wj-sandbox317-opentlc-com:6443
+  user:
+    token: sha256~L12hvm3q7VDia22dTaMrpBACJSckwAt9sTMQzPGVcys
+- name: opentlc-mgr/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+  user:
+    token: sha256~Tnu13BVzoVHZG2D860scib31MVV3LuIfE4roSp5PClA
+- name: shozjg/api-eu46a-prod-ole-redhat-com:6443
+  user:
+    token: sha256~rf2dWqXgvFqXwl8W8rEpmJ-yOWxX6xgCan6hMxaLqOU
+- name: user1/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
+  user:
+    token: sha256~iQCOg8iwBeruvzQft3GMvB_tzEDGTOH6_8Zx6KRwTzU
+- name: user1/api-cluster-b9hbt-b9hbt-sandbox2460-opentlc-com:6443
+  user:
+    token: sha256~vRaCTvVaWkh3b9y4kMMMVOs9BE9tVmHBa_cqylh6HOk
+- name: user1/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+  user:
+    token: sha256~xpEEqtFi63U_QcIlFJkALoYuBVL6GeJ1Utxp98G40Ek
+- name: user1/api-hemlock-optimalpath-xyz:6443
+  user:
+    token: sha256~cK7zOBz2RQOQ2iDlNWCIWLT1JFuHtLw63x1ROW9lkQg
+- name: user2/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
+  user: {}

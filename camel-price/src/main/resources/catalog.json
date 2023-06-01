@@ -46,5 +46,13 @@
   {
     "item": "Glasses",
     "price": 189.99
+  },
+  {
+    "item": "Banana",
+    "price": 0.27
+  },
+  {
+    "item": "Orange",
+    "price": 0.95 
   }
 ]

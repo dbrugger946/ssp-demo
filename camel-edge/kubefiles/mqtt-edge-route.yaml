@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    ActiveMQArtemis: edge
+    application: edge-app
+    statefulset.kubernetes.io/pod-name: edge-ss-0
+  name: edge-mqtt-0-svc-rte
+spec:
+  host: broker-amq-mqtt.apps.crest.optimalpath.xyz
+  port:
+    targetPort: mqtt-0
+  to:
+    kind: Service
+    name: edge-mqtt-0-svc
+    weight: 100
+  wildcardPolicy: None
+  tls:
+    termination: edge

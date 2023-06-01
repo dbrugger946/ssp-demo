@@ -1,0 +1,66 @@
+
+
+<setProperty name="possible-detections">
+             <jsonpath resultType="java.util.ArrayList">$.detections[*][class,score]</jsonpath>
+</setProperty>
+<log message="possible detections: ${exchangeProperty.possible-detections}"/>
+
+{
+  "detections": [
+    {
+      "box": {
+        "xMax": 0.7219776511192322,
+        "xMin": 0.430375874042511,
+        "yMax": 0.797975480556488,
+        "yMin": 0.3036192059516907
+      },
+      "class": "Human face",
+      "label": "Human face",
+      "score": 0.9043735861778259
+    },
+    {
+      "box": {
+        "xMax": 0.7258288264274597,
+        "xMin": 0.42943745851516724,
+        "yMax": 0.5660113096237183,
+        "yMin": 0.4299122989177704
+      },
+      "class": "Glasses",
+      "label": "Glasses",
+      "score": 0.7829222679138184
+    },
+    {
+      "box": {
+        "xMax": 0.9783023595809937,
+        "xMin": 0.08490470051765442,
+        "yMax": 0.9826503992080688,
+        "yMin": 0.2483201026916504
+      },
+      "class": "Man",
+      "label": "Man",
+      "score": 0.533997118473053
+    },
+    {
+      "box": {
+        "xMax": 0.735988974571228,
+        "xMin": 0.6988788843154907,
+        "yMax": 0.6127793788909912,
+        "yMin": 0.4703803062438965
+      },
+      "class": "Human ear",
+      "label": "Human ear",
+      "score": 0.11364363133907318
+    },
+    {
+      "box": {
+        "xMax": 0.625682532787323,
+        "xMin": 0.518871009349823,
+        "yMax": 0.6281214952468872,
+        "yMin": 0.47514697909355164
+      },
+      "class": "Human nose",
+      "label": "Human nose",
+      "score": 0.11332352459430695
+    }
+  ]
+}

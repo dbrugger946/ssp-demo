@@ -1,0 +1,66 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: object-detection
+  labels:
+    app: object-detection
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: object-detection
+  template:
+    metadata:
+      labels:
+        app: object-detection
+    spec:
+      containers:
+        - name: object-detection-app
+          image: 'quay.io/redhatintegration/object-detection:latest'
+          resources:
+            limits:
+              cpu: 500m
+              memory: 3000Mi
+            requests:
+              cpu: 400m
+              memory: 2200Mi
+          securityContext:
+            seccompProfile:
+              type: RuntimeDefault
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - NET_BIND_SERVICE
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: object-detection-service
+spec:
+  selector:
+    app: object-detection
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  labels:
+    app: object-detection
+  name: object-detection
+spec:
+  host: object-detection.127.0.0.1.nip.io
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: object-detection-service
+  wildcardPolicy: None
+...
