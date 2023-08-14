@@ -2,6 +2,12 @@
 var constraints = { video: { facingMode: "user" }, audio: false };
 var track = null;
 
+// grab checkbox
+var checkboxAlgo = document.getElementById("algo--checkbox");
+// results algo textarea
+var textareaResults = document.getElementById("algo--results");
+
+
 //MQTT client Unique ID
 let uid = Date.now().toString(36) + Math.random().toString(36).substr(2)
 let mqttTopic         = "detection/" + uid;
@@ -83,6 +89,17 @@ function resizeImage(base64Str) {
   }
 
 
+// check if checkbox for show algo results is selected
+// show/hide results textarea
+checkboxAlgo.onclick = function() {
+    if (checkboxAlgo.checked == true) {
+        textareaResults.style.display = "block";
+    } else {
+        textareaResults.style.display = "none";
+     }
+    
+}
+
 // Send via HTTP when the button is tapped
 btnHttp.onclick = function() {
     sendHttp(cameraOutput.src)
@@ -121,9 +138,14 @@ function onMessageArrived(msg){
     //     price: 500
     // }
 
-    console.log("MQTT message: "+process.origin);
+    //console.log("MQTT message: "+process.origin);
 
     displayPrice(process.item+": "+process.price)
+
+    // always separate out the algo results
+    // user desides if they want to see them
+    pullAlgoResults(process.detections);
+
 }
 
 
@@ -172,12 +194,39 @@ function sendHttp(srcImage) {
     Http.send(JSON.stringify({ "image": reduced.replace("data:image/jpeg;base64,", "")}));
 
     Http.onreadystatechange = function() {
+        textareaResults.innerHTML = "";
+        textareaResults.scrollTop;
         if (this.readyState == 4 && this.status == 200) {
             console.log(Http.responseText)
             displayPrice(Http.responseText)
         }
     }	
 }
+
+  const formatter = Intl.NumberFormat('en-US', {
+    style: 'percent',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+
+function pullAlgoResults(algoResults){
+
+    textareaResults.innerHTML = "";
+    textareaResults.scrollTop;
+    
+    for (var i=0; i < algoResults.length ; i++ ) {
+        var label = algoResults[i].label;
+        var score = algoResults[i].score;
+
+        //console.log(label);
+        //console.log(score);
+
+        textareaResults.innerHTML += formatter.format(score) + " : " + label + '\r\n';
+    }
+    //console.log("algoResults:" + algoResults);
+
+}
+
 
 function displayPrice(price){
 
@@ -209,6 +258,7 @@ function sendMqtt(srcImage) {
 window.addEventListener("load", cameraStart, false);
 
 
+
 var brokerHost = window.location.hostname.replace("camel-edge", "broker-amq-mqtt")
 var brokerPort = window.location.port 
 const brokerUrl=window.location.href+"/test"
@@ -221,9 +271,9 @@ if (brokerHost == ""){
     brokerPort = "8080"
 }
 
-//For local testing
+//For local testing  -- or may need to set brokerPort = "1883"
 if (brokerPort == "8080"){
-	brokerPort = "1883"
+	brokerPort = "61616"
 	brokerOptions = {onSuccess:onConnect}
 }
 else{

@@ -15,9 +15,9 @@ function initMqtt(){
         brokerPort = "8080"
     }
     
-    //For local testing
+    //For local testing  -- or may need to set brokerPort = "1883"
     if (brokerPort == "8080"){
-        brokerPort = "1883"
+        brokerPort = "61616"
         brokerOptions = {onSuccess:onConnect}
     }
     else{

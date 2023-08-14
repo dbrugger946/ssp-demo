@@ -126,17 +126,27 @@
     <route id="evaluate-detection">
         <from uri="direct:evaluate-detection"/>
 
-
+        <!--
         <setProperty name="possible-detections">
-             <jsonpath resultType="java.util.ArrayList">$.detections[*]['label','score']</jsonpath>
+             <jsonpath>$.detections[*]['label','score']</jsonpath>
         </setProperty>
         <log message="possible detections: ${exchangeProperty.possible-detections}"/>
-        
+        -->
+
+
         <to uri="kafka:{{kafka.topic.name}}?brokers={{camel.component.kafka.brokers}}"/>
+
+        <process ref="#class:com.edgedemo.ResultsProcessor"/>
+
+        
+        <setProperty name="possible-detections">
+            <simple>${header.algoResults}</simple>
+        </setProperty>
+        <log message="RESULTS: ${exchangeProperty.possible-detections}"/>
 
         <setBody>
             <jsonpath resultType="java.util.ArrayList">$.detections[?(@.score>{{score.accuracy}})].label</jsonpath>
-        </setBody>
+        </setBody>   
 
         <log message="accuracy: {{score.accuracy}}"/>
         <log message="result detection: ${body}"/>
@@ -271,7 +281,9 @@
         <from uri="direct:mqtt-publish"/>
 
         <setBody>
-            <simple>{${exchangeProperty.job-origin},${exchangeProperty.job-valid},${exchangeProperty.job-item},${exchangeProperty.job-price}}</simple>
+            <simple>{${exchangeProperty.job-origin},${exchangeProperty.job-valid},${exchangeProperty.job-item},${exchangeProperty.job-price},${exchangeProperty.possible-detections}}</simple> 
+            <!-- <simple>{${exchangeProperty.job-origin},${exchangeProperty.job-valid},${exchangeProperty.job-item},${exchangeProperty.job-price}}</simple> -->
+
         </setBody>
 
         <log message="sending monitor MQTT message: ${body}"/>

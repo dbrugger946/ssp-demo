@@ -17,8 +17,25 @@ html, body{
     filter: FlipH;
 }
 
+#checks{
+  width: 140px;
+  background-color: black;
+  color: red;
+  font-size: 12px;
+  border-radius: 10px;
+  border: lightsalmon;
+  padding: 10px 10px;
+  text-align: center;
+  /*box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2); */
+  position: fixed;
+  bottom: 75px;
+  left: calc(50% - 95px);
+  /* box-shadow: 0 5px #666; */
+  
+}
+
 #camera--trigger{
-    width: 200px;
+    width: 170px;
     background-color: black;
     color: white;
     font-size: 16px;
@@ -28,8 +45,8 @@ html, body{
     text-align: center;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
     position: fixed;
-    bottom: 90px;
-    left: calc(50% - 100px);
+    bottom: 20px;
+    left: calc(50% - 190px);
     box-shadow: 0 5px #666;
 }
 
@@ -40,7 +57,7 @@ html, body{
 }
 
 #camera--trigger2{
-    width: 200px;
+    width: 170px;
     background-color: black;
     color: white;
     font-size: 16px;
@@ -50,8 +67,8 @@ html, body{
     text-align: center;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
     position: fixed;
-    bottom: 30px;
-    left: calc(50% - 100px);
+    bottom: 20px;
+    left: calc(50% - 10px);
     box-shadow: 0 5px #666;
 }
 
@@ -131,6 +148,29 @@ html, body{
     /* right: 150px; */
     left: calc(50% - 100px);
     opacity:0;
+}
+
+#algo--results{
+    width: 175px;
+    /* background-color: black;
+    color: white; */
+    background-color: darkslategray;
+    color: yellow;
+    font-size: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 5px;
+    text-align: left;
+    /* box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2); */
+    position: fixed;
+    /* top: 80px; */
+    /*top: 60%; */
+    bottom: 120px;
+    /* right: 50%; */
+    /* right: 150px; */
+    left: calc(50% - 100px);
+    opacity:0.7; 
+    resize: none;
 }
 
 .taken{

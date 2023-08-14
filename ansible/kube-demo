@@ -2,6 +2,10 @@ apiVersion: v1
 clusters:
 - cluster:
     insecure-skip-tls-verify: true
+    server: https://api.cluster-2b5rz.2b5rz.sandbox1320.opentlc.com:6443
+  name: api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443
+- cluster:
+    insecure-skip-tls-verify: true
     server: https://api.cluster-89dmx.89dmx.sandbox2714.opentlc.com:6443
   name: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
 - cluster:
@@ -106,6 +110,11 @@ contexts:
     user: kube:admin/api-crest-optimalpath-xyz:6443
   name: cameldemo/api-crest-optimalpath-xyz:6443/kube:admin
 - context:
+    cluster: api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443
+    namespace: default
+    user: admin/api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443
+  name: default/api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443/admin
+- context:
     cluster: api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
     namespace: default
     user: admin/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
@@ -160,6 +169,11 @@ contexts:
     namespace: dev-guides
     user: admin/api-cluster-lgqrs-sandbox2810-opentlc-com:6443
   name: dev-guides/api-cluster-lgqrs-sandbox2810-opentlc-com:6443/admin
+- context:
+    cluster: api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443
+    namespace: edge
+    user: admin/api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443
+  name: edge/api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443/admin
 - context:
     cluster: api-cluster-vhk7c-vhk7c-sandbox2115-opentlc-com:6443
     namespace: edge
@@ -335,10 +349,13 @@ contexts:
     namespace: user2
     user: user2/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443
   name: user2/api-cluster-stczx-stczx-sandbox971-opentlc-com:6443/user2
-current-context: default/api-cluster-rg9r4-rg9r4-sandbox2724-opentlc-com:6443/admin
+current-context: edge/api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443/admin
 kind: Config
 preferences: {}
 users:
+- name: admin/api-cluster-2b5rz-2b5rz-sandbox1320-opentlc-com:6443
+  user:
+    token: sha256~BtGH82efMTuFN5quxXv-9OvuDgi9XIH8wdkZs4uKMwc
 - name: admin/api-cluster-89dmx-89dmx-sandbox2714-opentlc-com:6443
   user:
     token: sha256~sqEiOCAh9J0MPJYM2sROjiHXXw1wlQhVjjK2iptQPcc
