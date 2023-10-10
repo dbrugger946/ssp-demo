@@ -23,6 +23,6 @@ source.onmessage = event => {
   }
   
   $('#entries').append('<tr class="table-active"> <td></td><td></td><td></td></tr>');
-
+  $(document).scrollTop($(document).height());
 
 };

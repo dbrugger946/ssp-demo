@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: appconfig
 data:
-  KAFKA_BOOTSTRAP: "my-cluster-kafka-bootstrap.kubeadmin-kafka-cluster.svc:9092"
+  KAFKA_BOOTSTRAP: "my-cluster-kafka-bootstrap.kafka-central.svc:9092"
