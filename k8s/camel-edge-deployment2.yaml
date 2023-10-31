@@ -18,12 +18,12 @@ spec:
     spec:
       containers:
       - name: camel-edge
-        image: quay.io/dbrugger946/camel-edge-simple:1.0.5
+        image: quay.io/dbrugger946/camel-edge-simple:1.0.7
         env:
         - name: MQTT_URL
           value: tcp://edge-mqtt-0-svc:1883
         - name: KAFKA_BOOTSTRAP
-          value: my-cluster-kafka-bootstrap.user1.svc:9092
+          value: my-cluster-kafka-bootstrap.kafka-central.svc:9092
         - name: PRICE_URL
           value: camel-price-svc:8080
         - name: INFERENCE_URL
@@ -39,7 +39,7 @@ spec:
         resources:
           limits:
             memory: "128Mi"
-            cpu: "250m"
+            cpu: "500m"
         ports:
         - containerPort: 8080
         imagePullPolicy: Always

@@ -119,7 +119,7 @@
             </otherwise>
         </choice>
 
-        <log message="${body}"/>
+        <!-- <log message="${body}"/> -->
     </route>
 
 
@@ -142,7 +142,7 @@
         <setProperty name="possible-detections">
             <simple>${header.algoResults}</simple>
         </setProperty>
-        <log message="RESULTS: ${exchangeProperty.possible-detections}"/>
+        <!-- <log message="RESULTS: ${exchangeProperty.possible-detections}"/> -->
 
         <setBody>
             <jsonpath resultType="java.util.ArrayList">$.detections[?(@.score>{{score.accuracy}})].label</jsonpath>
@@ -178,7 +178,8 @@
         <log message="Detected: ${body}"/>
     </route>
 
-    <!-- Store in S3 -->
+    
+    <!-- Store in S3 
     <route id="store-image">
         <from uri="direct:store-image"/>
 
@@ -192,7 +193,6 @@
             <base64/>
         </unmarshal>
 
-        <!-- File name for testing purposes -->
         <setHeader name="CamelFileName">
             <simple>${date:now:yyyy-MM-dd_HH-mm-ssZ}.jpeg</simple>
         </setHeader>
@@ -208,7 +208,7 @@
         <toD uri="{{camel.uri.s3}}"/>
         <log message="file stored"/>
     </route>
-
+    -->
 
     <!-- Price simulator -->
     <route id="price">
@@ -286,7 +286,7 @@
 
         </setBody>
 
-        <log message="sending monitor MQTT message: ${body}"/>
+        <log message="* sending monitor MQTT message: ${body}"/>
         <to uri="{{mqtt.uri.monitor}}"/>
 
         <!-- if client is MQTT we respond back -->
@@ -295,7 +295,7 @@
             <setHeader name="CamelPahoOverrideTopic">
                 <simple>${exchangeProperty.topic-response}</simple>
             </setHeader>
-            <log message="sending MQTT response to: {exchangeProperty.topic-response}"/>
+            <log message="** sending MQTT response to: ${exchangeProperty.topic-response} {{mqtt.uri.monitor}}"/>
             <to uri="{{mqtt.uri.monitor}}"/>
         </when>
     </route>

@@ -38,7 +38,7 @@ services:
       - demo-net
   price-engine:
     container_name: price-engine-local
-    image: quay.io/redhatintegration/camel-price:1.0.0
+    image: quay.io/dbrugger946/camel-price-simple:1.0.1
     ports:
       - 8090:18090
     networks:
