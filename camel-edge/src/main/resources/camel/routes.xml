@@ -133,11 +133,9 @@
         <log message="possible detections: ${exchangeProperty.possible-detections}"/>
         -->
 
-
         <to uri="kafka:{{kafka.topic.name}}?brokers={{camel.component.kafka.brokers}}"/>
 
         <process ref="#class:com.edgedemo.ResultsProcessor"/>
-
         
         <setProperty name="possible-detections">
             <simple>${header.algoResults}</simple>
