@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/part-of: pos
     app.openshift.io/runtime: camel  
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: camel-edge
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: camel-edge
-        image: quay.io/dbrugger946/camel-edge-simple:1.0.7
+        image: quay.io/dbrugger946/camel-edge-simple:1.0.8
         env:
         - name: MQTT_URL
           value: tcp://edge-mqtt-0-svc:1883
