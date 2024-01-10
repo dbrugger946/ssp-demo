@@ -1,0 +1,85 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: detection-results
+    app.kubernetes.io/version: 1.0.1
+  name: detection-results
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: detection-results
+      app.kubernetes.io/version: 1.0.1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: detection-results
+        app.kubernetes.io/version: 1.0.1
+    spec:
+      serviceAccountName: detection-results
+      containers:
+      - name: detection-results
+        image: quay.io/dbrugger946/detection-results-edge:1.0.1   
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: detection-results
+    app.kubernetes.io/version: 1.0.1
+  name: detection-results
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: detection-results
+    app.kubernetes.io/version: 1.0.1
+  type: ClusterIP
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: detection-results
+spec:
+  to:
+    kind: Service
+    name: detection-results
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  wildcardPolicy: None
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    app.quarkus.io/commit-id: 33ce31dd014438f369480dd50c09c5975ca815e2
+    app.quarkus.io/build-timestamp: 2024-01-10 - 13:30:57 +0000
+  labels:
+    app.kubernetes.io/name: detection-results
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+  name: detection-results
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: detection-results
+  name: detection-results-view
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: view
+subjects:
+  - kind: ServiceAccount
+    name: detection-results
+---

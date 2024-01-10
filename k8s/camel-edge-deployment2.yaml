@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: camel-edge
-        image: quay.io/dbrugger946/camel-edge-simple:1.0.8
+        image: quay.io/dbrugger946/camel-edge-simple:1.0.9
         env:
         - name: MQTT_URL
           value: tcp://edge-mqtt-0-svc:1883
@@ -37,10 +37,6 @@ spec:
           value: http://s3.openshift-storage.svc
         - name: ACCURACY
           value: "0.60"
-        resources:
-          limits:
-            memory: "500Mi"
-            cpu: "500m"
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
